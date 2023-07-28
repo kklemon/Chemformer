@@ -1,5 +1,6 @@
 .pytest_cache
 .vscode/
+.venv/
 __pycache__
 lightning_logs
 molbart.egg-info/
@@ -9,3 +10,4 @@ saved_models/
 notebooks/data/
 notebooks/.ipynb_checkpoints/
 notebooks/playground.ipynb
+models/

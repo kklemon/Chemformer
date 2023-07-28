@@ -8,7 +8,7 @@ import pandas as pd
 import pytorch_lightning as pl
 from pathlib import Path
 from pytorch_lightning import Trainer
-from pytorch_lightning.plugins import DeepSpeedPlugin
+from pytorch_lightning.plugins import DeepSpeedPrecisionPlugin
 from pytorch_lightning.loggers import TensorBoardLogger
 from pytorch_lightning.callbacks import LearningRateMonitor, ModelCheckpoint, Callback
 
@@ -235,7 +235,7 @@ def build_trainer(args):
     if args.gpus > 1:
         accelerator = "ddp"
         lr_monitor = OptLRMonitor()
-        plugins = [DeepSpeedPlugin(config=args.deepspeed_config_path)]
+        plugins = [DeepSpeedPrecisionPlugin(config=args.deepspeed_config_path)]
 
     callbacks = [lr_monitor, checkpoint_cb]
 
